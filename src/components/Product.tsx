@@ -28,8 +28,8 @@ export const Product = (props: Partial<IProduct>) => {
             <div style={{ backgroundImage: `url("${memoUrl}")`, width: "100%", height: "100%" }}></div>
             {
                 state.role === "user" &&
-                <div className="z-20 absolute hidden w-48 h-48 opacity-70 bg-gray-600 group-hover:block  overflow-hidden">
-                    <button className="z-20 fixed top-1/2 right-1/2 w-32 h-10 -mt-5 -mr-16  transition-all ease-linear duration-75 text-white text-xs outline-none border-none" onClick={handleOnClick}>Add To Card</button>
+                <div className="z-20 absolute hidden w-48 h-48 opacity-70 bg-gray-600 group-hover:block  transition-all ease-linear duration-15  overflow-hidden">
+                    <button className="z-20 fixed top-1/2 right-1/2 w-32 h-10 -mt-5 -mr-16  transition-all ease-linear duration-150 text-white text-xs outline-none border-none" onClick={handleOnClick}>Add To Card</button>
                 </div>
             }
         </div>

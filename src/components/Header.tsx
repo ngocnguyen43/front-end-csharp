@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useCreateOrder } from "@hooks"
-import { StoreContext, USER_LOG_OUT } from "@store"
+import { REMOVE_PRODUCTS, StoreContext, USER_LOG_OUT } from "@store"
 import { useContext, useState } from "react"
 import { IoSearchSharp, IoBagHandleSharp, IoCloseSharp } from "react-icons/io5"
 import { useNavigate } from "react-router-dom"
@@ -16,12 +16,12 @@ export const Header = (): JSX.Element => {
     }
     const handleOpenCard = () => {
         console.log(this);
-
         setIsShowCard(true);
     }
     const handleOrder = async () => {
         const products = state.products.map((items) => ({ productId: items.productId, quantity: items.quantity }));
         await execute({ Id: "123", userId: state.id, orderProducts: products })
+        dispatch({ type: REMOVE_PRODUCTS })
     }
     return <>
         <header className="fixed w-full top-0 bg-slate-800 h-32 left-0 flex p-8 justify-around items-center">
@@ -71,8 +71,8 @@ export const Header = (): JSX.Element => {
                             })
                         }
                     </div>
-                    <span className='absolute bottom-48 text-2xl text-white'>Total: {(state.products && state.products.length > 0) ? state.products.reduce((items, object) => { return items + object.price }, 0) : "0"} &#x24;</span>
-                    <button className='h-12 absolute bottom-32 w-1/2 left-1/2 -ml-20 bg-gray-500' onClick={() => void handleOrder()}>Check out</button>
+                    <span className='bottom-48 fixed text-xl text-white left-1/2 -ml-10'>Total: {(state.products && state.products.length > 0) ? state.products.reduce((items, object) => { return items + object.price }, 0) : "0"} &#x24;</span>
+                    <button className='h-12 absolute bottom-32 w-1/2 left-1/2 -ml-20 bg-gray-500 text-white' onClick={() => void handleOrder()}>Check out</button>
                 </div>
             </>
         }

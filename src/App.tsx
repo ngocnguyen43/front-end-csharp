@@ -8,13 +8,11 @@ const router = createBrowserRouter(
       <Route path='/home' index element={<Home />} />
       <Route path='/login' element={<Login />} />
       <Route path='/error' element={<Error />} />
-      <Route element={<RequiredAuth roles={["admin"]} />}>
-        <Route path='/' element={<Layout />}>
-          <Route path='/admin' element={<Admin />} />
-          <Route path='/products' index element={<Products />} />
-          <Route path='/orders' element={<Orders />} />
-          <Route path='/users' element={<Users />} />
-        </Route>
+      <Route path='/' element={<Layout />}>
+        <Route path='/admin' element={<Admin />} />
+        <Route path='/products' index element={<Products />} />
+        <Route path='/orders' element={<Orders />} />
+        <Route path='/users' element={<Users />} />
       </Route>
     </Route>
   ))

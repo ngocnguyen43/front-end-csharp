@@ -19,6 +19,7 @@ export const OrderRow = (props: IOrderResponse & { index: number }): JSX.Element
                 <>
                     <div className="z-20 fixed h-[500px] w-[450px] bg-white top-1/2 left-1/2 p-20 -ml-[225px] -mt-[250px]" >
                         <Form
+                            setData={() => { }}
                             onSubmit={hanldeSubmit}
                             setShowModal={setIsOpenModal}
                             inactive={true}
@@ -26,9 +27,10 @@ export const OrderRow = (props: IOrderResponse & { index: number }): JSX.Element
                                 userId: result ? result[0].userId : "",
                                 orderId: result ? result[0].orderId : "",
                                 products: result ? result[0].product.length : 0,
-                                total: result ? result[0].total : "",
+                                total: result ? result[0].total : 0,
                                 date: result ? ConvertDate(result[0].date) : ""
                             }}
+                            ignoredFields={["userId"]}
                             button={"OK"}
                         />
                     </div>

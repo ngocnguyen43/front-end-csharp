@@ -7,6 +7,8 @@ interface IRequired {
 export const RequiredAuth = (props: IRequired) => {
     const { roles } = props;
     const { state } = useContext(StoreContext);
+    console.log(state.role);
+
     if (roles.includes(state.role)) {
         return <Outlet />
     } else {

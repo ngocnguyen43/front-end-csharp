@@ -29,3 +29,25 @@ export const GetOneProduct = async (id: string, token: string): Promise<IRespons
 		},
 	});
 };
+export const CreateProduct = async (product: IProduct, token: string): Promise<IResponse> => {
+	const data = JSON.stringify(product);
+	return await Axios({
+		method: 'POST',
+		url: '/api/product',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: 'Bearer ' + token,
+		},
+		data: data,
+	});
+};
+export const DeleteProduct = async (id: string, token: string) => {
+	return await Axios({
+		method: 'DELETE',
+		url: '/api/product/' + id,
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: 'Bearer ' + token,
+		},
+	});
+};

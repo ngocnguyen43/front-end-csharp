@@ -1,6 +1,7 @@
 import { useState } from 'react';
 interface IFormProps<T> {
     data?: T;
+    setData: (data: T) => void
     setShowModal: (value: boolean) => void;
     onSubmit: (data: T) => void;
     ignoredFields?: string[];
@@ -12,6 +13,7 @@ interface IFormProps<T> {
 export const Form = <T extends Record<string, any>>({
     data = {} as T,
     setShowModal,
+    setData,
     onSubmit,
     ignoredFields = [],
     includeIgnoredFields = false,
@@ -26,6 +28,7 @@ export const Form = <T extends Record<string, any>>({
             ...prevState,
             [name]: value,
         }));
+        setData(data);
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +45,7 @@ export const Form = <T extends Record<string, any>>({
     const formFields = fields
         .filter(
             (fieldName) =>
-                includeIgnoredFields && !ignoredFields.includes(fieldName)
+                includeIgnoredFields || !ignoredFields.includes(fieldName)
         )
         .map((field) => (
             <div key={field} className='w-full'>
