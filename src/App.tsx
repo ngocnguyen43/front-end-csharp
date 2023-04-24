@@ -1,5 +1,5 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import { Admin, Error, Home, Login } from '@pages'
+import { Admin, Error, Home, Login, Logout, Register } from '@pages'
 import './App.css'
 import { Layout, Orders, Products, RequiredAuth, Users } from '@components'
 const router = createBrowserRouter(
@@ -7,6 +7,8 @@ const router = createBrowserRouter(
     <Route errorElement={<Error />}>
       <Route path='/home' index element={<Home />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register />} />
+      <Route path='/logout' element={<Logout />} />
       <Route path='/error' element={<Error />} />
       <Route path='/' element={<Layout />}>
         <Route path='/admin' element={<Admin />} />

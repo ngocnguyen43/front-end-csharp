@@ -8,9 +8,9 @@ export const Error = (): JSX.Element => {
     const navigate = useNavigate();
     const HandleOnClick = () => {
         dispatch({ type: USER_LOG_OUT })
-        navigate("/login")
+        navigate("/home")
     }
     return <>
-        <div className="text-2xl">There was an Error <a onClick={HandleOnClick} className="text-2xl cursor-pointer font-semibold"> Click Here </a>to Login Again</div>
+        <div className="text-2xl">There was an Error <a onClick={HandleOnClick} className="text-2xl cursor-pointer font-semibold"> Click Here </a>to To Back</div>
     </>
 }

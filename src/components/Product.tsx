@@ -24,8 +24,8 @@ export const Product = (props: Partial<IProduct>) => {
         dispatch({ type: ADD_PRODUCT_TO_CARD, payload: { token: "", role: "", id: "", product: product } })
     }
     return <div>
-        <div id='' className=" w-48 h-48 bg-gray-300 shadow-md rounded-md cursor-pointer group  overflow-hidden transition-all ease-linear duration-75 hover:scale-105">
-            <div style={{ backgroundImage: `url("${memoUrl}")`, width: "100%", height: "100%" }}></div>
+        <div id='' className=" w-48 h-48 bg-[#F5F5F5] shadow-md rounded-md cursor-pointer group  overflow-hidden transition-all ease-linear duration-75 hover:scale-105">
+            <div style={{ background: `url("${memoUrl}") no-repeat center `, width: "100%", height: "100%" }}></div>
             {
                 state.role === "user" &&
                 <div className="z-20 absolute hidden w-48 h-48 opacity-70 bg-gray-600 group-hover:block  transition-all ease-linear duration-15  overflow-hidden">

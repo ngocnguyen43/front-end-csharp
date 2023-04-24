@@ -22,10 +22,7 @@ export const CreateUser = async (user: IUser & { password: string }, token: stri
 		data: data,
 	});
 };
-export const UpdateUser = async (
-	user: Omit<IUser, 'name' | 'fullname'> & { password: string; fullName: string },
-	token: string,
-) => {
+export const UpdateUser = async (user: IUser & { password: string }, token: string) => {
 	const data = JSON.stringify(user);
 	return await Axios({
 		method: 'PATCH',

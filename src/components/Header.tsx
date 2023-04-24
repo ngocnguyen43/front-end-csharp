@@ -12,7 +12,7 @@ export const Header = (): JSX.Element => {
     const { execute } = useCreateOrder();
     const handleOnclick = () => {
         dispatch({ type: USER_LOG_OUT })
-        navigate("/")
+        navigate("/home")
     }
     const handleOpenCard = () => {
         console.log(this);
@@ -60,7 +60,7 @@ export const Header = (): JSX.Element => {
                             state.products.length > 0 &&
                             state.products.map((items, index) => {
                                 return <div key={index} className=" mt-10 flex items-center">
-                                    <div id='' className="flex items-center w-24 h-24 bg-gray-300 shadow-md rounded-md cursor-pointer group  overflow-hidden transition-all ease-linear duration-75 hover:scale-105" style={{ backgroundImage: `url("${items.image}")` }}>
+                                    <div id='' className="flex items-center w-24 h-24 bg-[#F5F5F5]  shadow-md rounded-md cursor-pointer group  overflow-hidden transition-all ease-linear duration-75 hover:scale-105" style={{ background: `url("${items.image}") contain no-repeat center center` }}>
                                     </div>
                                     <div className="ml-4">
                                         <span className="block mt-2 mb-0 text-left text-blue-400 text-lg"> <b>name:     {items.productName}</b></span>

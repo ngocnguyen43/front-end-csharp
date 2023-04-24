@@ -11,6 +11,8 @@ export const Users = () => {
     const { result, error, loading } = useFetchUsers();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const { state } = useContext(StoreContext);
+    console.log(result);
+
     const hanldeSubmit = async (user: IUser & { password: string }) => {
         try {
             await CreateUser(user, state.token)
@@ -30,7 +32,7 @@ export const Users = () => {
                         data={{
                             id: "123",
                             email: "",
-                            fullname: "",
+                            fullName: "",
                             password: "",
                             role: "ABC"
                         }}
@@ -48,7 +50,7 @@ export const Users = () => {
             <thead>
                 <tr className="bg-blue-400 text-white">
                     <td>ID</td>
-                    <td>fullname</td>
+                    <td>full name</td>
                     <td>email</td>
                     <td>role</td>
                     <td>aaction</td>

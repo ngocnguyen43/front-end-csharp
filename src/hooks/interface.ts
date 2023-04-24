@@ -9,7 +9,7 @@ import { IOResponse } from './useFetchOneOrder';
 export interface IUser {
 	id: string;
 	email: string;
-	fullname: string;
+	fullName: string;
 	role: string;
 }
 export interface IResponse {
