@@ -15,6 +15,6 @@
 ## Instructions
 1. Clone this repo and [this repo](https://github.com/ngocnguyen43/API-CSharp)
 2. Run ```cd``` into the folder
-3. Run```cp .env.example .env``` and set up file ```.env``` 
+3. Run ```cp .env.example .env``` and set up file ```.env``` 
 4. Run ```npm i & npm run dev``` (change ```&``` to ```;``` if not working)
 5. Enjoy 🎉🎉
