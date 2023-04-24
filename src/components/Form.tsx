@@ -50,7 +50,7 @@ export const Form = <T extends Record<string, any>>({
         .map((field) => (
             <div key={field} className='w-full'>
                 <label htmlFor={field} className='block text-left text-[16px]'>{field}</label>
-                <input disabled={inactive} className='w-full text-sm leading-8 bg-gray-300 rounded-md' type="text" id={field} name={field} value={formData[field as keyof T] ?? ''} placeholder={field} onChange={handleChange} />
+                <input disabled={inactive || field === "password"} className='w-full text-sm leading-8 bg-gray-300 rounded-md' type={field === "password" ? "password" : "text"} id={field} name={field} value={formData[field as keyof T] ?? ''} placeholder={field} onChange={handleChange} />
             </div>
         ));
     return (
